@@ -1,0 +1,166 @@
+{
+  "name": "LB",
+  "scopeName": "source.lb",
+  "fileTypes": ["lb"],
+
+  "repository":
+  {
+    "comments": {
+      "patterns": [
+        {
+            "captures": {
+                "0": {
+                    "name": "punctuation.definition.comment.lb"
+                }
+            },
+            "begin": "/\\*",
+            "end": "\\*/",
+            "name": "comment.block.lb"
+        },
+        {
+            "name": "invalid.illegal.stray-comment-end.lb",
+            "match": "\\*/.*\\n"
+        },
+        {
+            "begin": "#",
+            "end": "$\\n?",
+            "name": "comment.line.number-sign.lb",
+            "beginCaptures": {
+                "0": {
+                    "name": "punctuation.definition.comment.lb"
+                }
+            }
+        }
+      ]
+    },
+
+    "embed-c": {
+      "comment":  "Embedded C++ code",
+      "name": "c++",
+      "begin": "\\[\\[",
+      "beginCaptures": {
+        "0":  { "name": "keyword.source.lb" }
+      },
+      "end": "\\]\\]",
+      "endCaptures": {
+        "0":  { "name": "keyword.source.lb" }
+      },
+      "patterns": [
+          {
+              "include": "source.c"
+          }
+      ]
+    },
+
+    "lbtypes": {
+        "name": "storage.type.lb",
+        "match": "\\b(?:int|double|bool|integer|long|string|lstring|table|function|udata|callback|multi|any)\\b"
+    },
+
+    "function-definition": {
+      "begin": "^\\s*(\\b(?:int|double|bool|integer|long|string|lstring|table|function|udata|callback|multi|any)\\b)?(?:\\s+)?([a-zA-Z0-9_]+)\\s*(\\()?",
+      "end": "\\)?$",
+      "name": "meta.function.lb",
+      "contentName": "meta.function.arguments.lb",
+      "beginCaptures": {
+          "1": {
+              "name": "storage.modifier.lb"
+          },
+          "2": {
+              "name": "entity.name.function.lb"
+          },
+          "3": {
+              "name": "punctuation.definition.parameters.begin.lb"
+          }
+      },
+      "patterns": [
+        {
+            "comment": "An argument with a default value",
+            "name": "meta.function.argument.default.lb",
+            "match": "\\s*(\\b(?:int|double|bool|integer|long|string|lstring|table|function|udata|callback|multi|any)\\b)?\\s+([a-zA-Z0-9_]+)\\s*(=)\\s*([a-zA-Z0-9_]+)\\s*(,)?",
+            "captures": {
+                "1": {
+                    "name": "storage.type.lb"
+                },
+                "2": {
+                    "name": "variable.other.lb"
+                },
+                "3": {
+                  "name": "punctuation"
+                },
+                "4": {
+                  "name": "constant.other.lb"
+                },
+                "5": {
+                  "name": "punctuation"
+                }
+            }
+        },
+        {
+            "comment": "An argument WITHOUT default value",
+            "name": "meta.function.argument.no-default.lb",
+            "match": "\\s*(\\b(?:int|double|bool|integer|long|string|lstring|table|function|udata|callback|multi|any)\\b)?\\s+([a-zA-Z0-9_]+)\\s*(,)?",
+            "captures": {
+                "1": {
+                    "name": "storage.type.lb"
+                },
+                "2": {
+                    "name": "variable.other.lb"
+                },
+                "3": {
+                  "name": "punctuation"
+                }
+            }
+        }
+      ],
+      "endCaptures": {
+          "0": {
+              "name": "punctuation.definition.parameters.end.lb"
+          }
+      }
+    }
+  },
+
+  "patterns": [
+
+  {
+    "comment":  "Module declaration",
+    "match":    "^\\b(module)\\b\\s+(\\S+)\\s*;",
+    "captures": {
+        "1": { "name":  "keyword.source.lb" },
+        "2": { "name":  "variable.source.lb" }
+    },
+    "name":     "meta.namespace-block.source.lb"
+  },
+
+  {
+    "comment":  "Class definition",
+    "name": "class.source.lb",
+    "begin": "^\\s*\\b(restricted)?\\b\\s*\\b(class|global|interface|globals)\\b(?:\\s+(\\S+)\\s*(\\[\\[)(.*)(\\]\\])\\s*(.*?)?)?$\\n",
+    "beginCaptures": {
+      "1": { "name": "keyword.source.lb" },
+      "2": { "name": "keyword.source.lb" },
+      "3": { "name": "variable.source.lb" },
+      "4": { "name": "keyword.source.lb" },
+      "5": { "name": "source.c++" },
+      "6": { "name": "keyword.source.lb" },
+      "7": { "name": "variable.source.lb" }
+    },
+    "end": "\\}",
+    "endCaptures":  {
+      "0":  {"name": "keyword.source.lb" }
+    },
+    "patterns": [
+      { "include": "#comments" },
+      { "include": "#embed-c"},
+      { "include": "#function-definition" }
+    ]
+  },
+
+  {"include": "#comments" },
+  {"include": "#embed-c" }
+
+  ],
+
+  "uuid": "84447adf-0302-43a6-95b5-cbb37ee6c18b"
+}
