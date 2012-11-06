@@ -14,9 +14,10 @@ LB provides the ability to easily create Lua bindings for C/C++ code.  This pack
 Getting Started
 ===============
 
-If you're running a full installation of Sublime Text, simply doublelick on the
-``.sublime-package`` file. If you're running a portable installation, you need
-to perform an `installation by hand`_.
+1. CD somewhere convenient
+2. git clone git@github.com:TrickPlay/LB-SublimeText.git
+3. zip -r LB-SublimeText.sublime-package LB-SublimeText -x "LB-SublimeText/.git/*" -x "LB-SublimeText/.gitignore"
+4. Double-click SublimeText.sublime-package to install it
 
 .. _installation by hand: http://sublimetext.info/docs/extensibility/packages.html#installation-of-packages-with-sublime-package-archives
 
