@@ -58,7 +58,7 @@
     },
 
     "function-definition": {
-      "begin": "^\\s*(\\b(?:int|double|bool|integer|long|string|lstring|table|function|udata|callback|multi|any)\\b)?(?:\\s+)?([a-zA-Z0-9_]+)\\s*(\\()?",
+      "begin": "^\\s*(\\b(?:int|double|bool|integer|long|string|lstring|table|function|udata|callback|multi|any|\\S+)\\b)?(?:\\s+)?([a-zA-Z0-9_]+)\\s*(\\()?",
       "end": "\\)?$",
       "name": "meta.function.lb",
       "contentName": "meta.function.arguments.lb",
@@ -77,7 +77,7 @@
         {
             "comment": "An argument with a default value",
             "name": "meta.function.argument.default.lb",
-            "match": "\\s*(\\b(?:int|double|bool|integer|long|string|lstring|table|function|udata|callback|multi|any)\\b)?\\s+([a-zA-Z0-9_]+)\\s*(=)\\s*([a-zA-Z0-9_]+)\\s*(,)?",
+            "match": "\\s*(\\b(?:int|double|bool|integer|long|string|lstring|table|function|udata|callback|multi|any|\\S+)\\b)?\\s+([a-zA-Z0-9_]+)\\s*(=)\\s*([a-zA-Z0-9_]+)\\s*(,)?",
             "captures": {
                 "1": {
                     "name": "storage.type.lb"
@@ -99,7 +99,7 @@
         {
             "comment": "An argument WITHOUT default value",
             "name": "meta.function.argument.no-default.lb",
-            "match": "\\s*(\\b(?:int|double|bool|integer|long|string|lstring|table|function|udata|callback|multi|any)\\b)?\\s+([a-zA-Z0-9_]+)\\s*(,)?",
+            "match": "\\s*(\\b(?:int|double|bool|integer|long|string|lstring|table|function|udata|callback|multi|any|\\S+)\\b)?\\s+([a-zA-Z0-9_]+)\\s*(,)?",
             "captures": {
                 "1": {
                     "name": "storage.type.lb"

@@ -194,7 +194,7 @@
 		<key>function-definition</key>
 		<dict>
 			<key>begin</key>
-			<string>^\s*(\b(?:int|double|bool|integer|long|string|lstring|table|function|udata|callback|multi|any)\b)?(?:\s+)?([a-zA-Z0-9_]+)\s*(\()?</string>
+			<string>^\s*(\b(?:int|double|bool|integer|long|string|lstring|table|function|udata|callback|multi|any|\S+)\b)?(?:\s+)?([a-zA-Z0-9_]+)\s*(\()?</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>1</key>
@@ -261,7 +261,7 @@
 					<key>comment</key>
 					<string>An argument with a default value</string>
 					<key>match</key>
-					<string>\s*(\b(?:int|double|bool|integer|long|string|lstring|table|function|udata|callback|multi|any)\b)?\s+([a-zA-Z0-9_]+)\s*(=)\s*([a-zA-Z0-9_]+)\s*(,)?</string>
+					<string>\s*(\b(?:int|double|bool|integer|long|string|lstring|table|function|udata|callback|multi|any|\S+)\b)?\s+([a-zA-Z0-9_]+)\s*(=)\s*([a-zA-Z0-9_]+)\s*(,)?</string>
 					<key>name</key>
 					<string>meta.function.argument.default.lb</string>
 				</dict>
@@ -287,7 +287,7 @@
 					<key>comment</key>
 					<string>An argument WITHOUT default value</string>
 					<key>match</key>
-					<string>\s*(\b(?:int|double|bool|integer|long|string|lstring|table|function|udata|callback|multi|any)\b)?\s+([a-zA-Z0-9_]+)\s*(,)?</string>
+					<string>\s*(\b(?:int|double|bool|integer|long|string|lstring|table|function|udata|callback|multi|any|\S+)\b)?\s+([a-zA-Z0-9_]+)\s*(,)?</string>
 					<key>name</key>
 					<string>meta.function.argument.no-default.lb</string>
 				</dict>
